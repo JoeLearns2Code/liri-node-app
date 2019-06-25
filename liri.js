@@ -1,21 +1,28 @@
 //enable .env
 require("dotenv").config();
 
-//API key file as a variable
-var keys = require("./keys.js");
+//enable Spotify
+var Spotify = require("node-spotify-api");
 
-//Access Spotify keys as a variable
+//Spotify API key & Secret file as a variable
+var keys = require("./keys");
+
+//Access Spotify key and secret as a variable
 var spotify = new Spotify(keys.spotify);
 
 //enable axios
 var axios = require("axios");
 
-//variable for user entry
 
-var input = process.argv.slice(2).join(' ')
+//variables for user command and search term entry
+
+var command = process.argv[2];
+var input = process.argv.slice(3).join('+');
+
+
 
 //Switch statement for various LIRI functions
-switch (input) {
+switch (command) {
 
 case "concert-this":
     console.log("concert-this function");
