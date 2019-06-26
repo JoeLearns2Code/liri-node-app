@@ -13,6 +13,9 @@ var spotify = new Spotify(keys.spotify);
 //enable axios
 var axios = require("axios");
 
+//enable moment
+var moment = require("moment");
+
 
 //variables for user command and search term entry
 
@@ -35,7 +38,8 @@ case "spotify-this-song":
     break;
 
 case "movie-this":
-    console.log("movie-this function");
+    // console.log("movie-this function");
+    movieThis();
     break;
 
 case "do-what-it-says":
@@ -52,9 +56,9 @@ case "do-what-it-says":
 
 function concertThis () {
 
-var concertQuery = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp"
+var concertQueryURL = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp"
 
-axios.get(concertQuery).then(
+axios.get(concertQueryURL).then(
     function (response){
        
     // Get function to correctly list each instance of logged data
@@ -63,10 +67,10 @@ axios.get(concertQuery).then(
      console.log("Venue: " + response.data[i].venue.name); 
      console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
 
-    //TODO: Get moment js to display the time correctly  - below doesn't work
-    // console.log("Date: " + moment(response.data[i].datetime, 'YYYY-MM-DDTHH:mm:ss').format('MM/DD/YYY, h:mm A')); 
+    //Use moment js to display the time correctly
+     console.log("Date: " + moment(response.data[i].datetime, 'YYYY-MM-DDTHH:mm:ss').format('MM/DD/YYYY, h:mm A')); 
 
-     console.log("Date: " + response.data[i].datetime); }
+      };
 
 
     }
@@ -99,11 +103,20 @@ function spotifyThisSong(){
 
 function movieThis(){
 
+var movieQueryURL = "http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy";
+
+axios.get(movieQueryURL).then(function(response){
+console.log("==========================");
+console.log("Title: " + response.data.Title);
+console.log("Release year: " + response.data.Released);
+console.log("IMDB rating: " + response.data.imdbRating);
+console.log("Rotten Tomatoes Shill Rating: " + response.data.Ratings[1].Value);
+console.log("Produced in: " + response.data.Country);
+console.log("Language: " + response.data.Language);
+console.log("Plot summary: " + response.data.Plot);
+console.log("Actors: " + response.data.Actors);
 
 
+});
 
-
-
-
-    
-}
+};
