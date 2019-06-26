@@ -26,6 +26,7 @@ switch (command) {
 
 case "concert-this":
     console.log("concert-this function");
+    concertThis();
     break;
 
 case "spotify-this-song":
@@ -42,4 +43,25 @@ case "do-what-it-says":
 
 
 
-}
+};
+
+//FUNCTIONS//
+
+//concert-this
+
+function concertThis () {
+
+var concertQuery = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp"
+
+axios.get(concertQuery).then(
+    function(response){
+     for (var i = 0; i <= response.length; i++);
+     console.log("Venue: " + response.data[i].venue.name); 
+     console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
+     console.log("Date: " + response.data[i].datetime);
+    }
+);
+
+
+
+};
