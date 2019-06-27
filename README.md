@@ -1,5 +1,7 @@
 # liri-node-app - LIRI Bot
 
+LIRI Bot is a program that can retrieve information about bands on tour, songs, and movies.  It takes in user inputs from a command terminal and pulls data from different API's based on these inputs in order to produce results.
+
 ## Getting Started
 
 This app is a command-based program that can be run on GitBash or Terminal; it is not run on a browser.  You will need to have VSCode or similar editor along with GitBash/Terminal.  Store all the files you download within the same folder.
@@ -65,15 +67,17 @@ LIRI Bot can understand the following commands:
 
 * do-what-it-says
 
+example: node liri.js movie this The Matrix
+
 
 
 ## Testing
 
-
+This program can be tested through use of the command console(GitBash/Terminal, etc.).  Simply add console.log under any section you wish to examine the results from in the console.  This was done extensively during development. 
 
 ##Deployment
 
-Navigate to https://github.com/ to clone.
+Navigate to https://github.com/ to clone.  Carefully follow the installation instructions above.
 
 ## Built With
 
@@ -87,10 +91,6 @@ Feel free to fork the repository for your own study.  If you would like to learn
 ## Versioning
 
 Use github for version control (https://github.com/your/project/tags).
-
-##In development
-
-This page will continue to evolve and grow until such time as I find gainful employment.
 
 ## Author
 
