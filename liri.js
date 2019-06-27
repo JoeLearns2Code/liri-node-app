@@ -52,7 +52,7 @@ switch (command) {
         break;
     
     default: 
-        console.log("Invalid command.  Please use one of the following: ");
+        console.log("\nInvalid command.  Please use one of the following: ");
         console.log("concert-this, spotify-this-song, movie-this, do-what-it-says");
 
 
@@ -72,7 +72,7 @@ function concertThis() {
          if (response.data.length != 0) {
             // Get function to correctly list each instance of logged data
             for (var i = 0; i < response.data.length; i++) {
-                console.log("'n=================================");
+                console.log("\n=================================");
                 console.log("Venue: " + response.data[i].venue.name);
                 console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
 
