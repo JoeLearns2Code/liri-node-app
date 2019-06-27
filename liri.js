@@ -60,8 +60,8 @@ switch (command) {
 //concert-this
 
 function concertThis() {
-    //TODO: add a response when artist is not on tour
     var concertQueryURL = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp"
+    //TODO: add a response when artist is not on tour
 
     axios.get(concertQueryURL).then(
         function (response) {
