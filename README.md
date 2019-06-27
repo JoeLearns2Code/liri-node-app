@@ -81,7 +81,7 @@ Navigate to https://github.com/ to clone.  Carefully follow the installation ins
 
 ## Built With
 
-Visual Studio Code: https://code.visualstudio.com/
+Visual Studio Code: https://code.visualstudio.com/  
 Node.js: https://nodejs.org/en/
 
 ## Contributing
@@ -98,6 +98,8 @@ Use github for version control (https://github.com/your/project/tags).
 
 
 ## Acknowledgments
+
+Thank you Adam Minkus for reccomending Gyazo to create the video capture for this README file.
 
 * Joe Rehfuss
 * Trae Shanks
