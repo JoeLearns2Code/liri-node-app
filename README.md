@@ -60,7 +60,7 @@ Replace all text after the = signs with your own Spotify Client ID and Secret ID
 You should now be ready to run LIRI Bot!
 
 
-##Instructions
+## Instructions
 
 To use LIRI Bot, you will need to navigate to the exact same folder where the files are saved on GitBash/Terminal.  
 
