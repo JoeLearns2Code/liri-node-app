@@ -38,7 +38,7 @@ switch (command) {
 
     case "spotify-this-song":
         // console.log("spotify-this-song function");
-        spotifyThisSong();
+        spotifyThisSong(input);
         break;
 
     case "movie-this":
@@ -48,8 +48,12 @@ switch (command) {
 
     case "do-what-it-says":
         // console.log("do-what-it-says function");
-        doWhatItSays();
+        doWhatItSays(input);
         break;
+    
+    default: 
+        console.log("\nInvalid command.  Please use one of the following: ");
+        console.log("concert-this, spotify-this-song, movie-this, do-what-it-says");
 
 
 
@@ -61,14 +65,14 @@ switch (command) {
 
 function concertThis() {
     var concertQueryURL = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp"
-    //TODO: add a response when artist is not on tour
-
+    
     axios.get(concertQueryURL).then(
         function (response) {
-
+            //Add a response when artist is not on tour through an if/else statement
+         if (response.data.length != 0) {
             // Get function to correctly list each instance of logged data
             for (var i = 0; i < response.data.length; i++) {
-                console.log("=================================");
+                console.log("\n=================================");
                 console.log("Venue: " + response.data[i].venue.name);
                 console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
 
@@ -77,7 +81,9 @@ function concertThis() {
 
             };
 
-
+            }else {
+                console.log("\nSorry, " + input + " is not currently touring.");
+            }
         }
     );
 
@@ -87,9 +93,9 @@ function concertThis() {
 
 
 //spotify-this-song
-//It is necessary to include input as a parameter for this function in order for the do-what-it-says function to work correctly.
+//It is necessary to include a parameter for this function in order for the do-what-it-says function to work correctly.
 function spotifyThisSong(input) {
-
+   
     //if no track is entered, default song
     if (input === "") {
         input = "the sign ace of base";
@@ -101,7 +107,7 @@ function spotifyThisSong(input) {
 
 
 
-        console.log("Artist(s): " + response.tracks.items[0].artists[0].name);
+        console.log("\nArtist(s): " + response.tracks.items[0].artists[0].name);
         console.log("Song Title: " + response.tracks.items[0].name);
         console.log("Preview Link: " + response.tracks.items[0].preview_url);
         console.log("Album: " + response.tracks.items[0].album.name);
@@ -125,7 +131,7 @@ function movieThis() {
 
 
     axios.get(movieQueryURL).then(function (response) {
-        console.log("==========================");
+        console.log("\n==========================");
         console.log("Title: " + response.data.Title);
         console.log("Release year: " + response.data.Released);
         console.log("IMDB rating: " + response.data.imdbRating);
@@ -152,6 +158,7 @@ fs.readFile("random.txt", 'utf8', function(err, data) {
 
     //define input as the split out string of text
     var input = text[1];
+    
     
     //run spotifyThisSong function on the above string
     spotifyThisSong(input);
